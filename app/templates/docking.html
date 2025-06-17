@@ -1,0 +1,50 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Molecular Docking {% endblock %}
+
+{% block content %}
+<section class="molecular-docking">
+    <div class="docking-content">
+        <div>
+            <h1 class="main-heading">How Was Molecular Docking Done?</h1>
+            <p>Molecular docking was performed on four different DENV3 E protein structures (PDB IDs: 1UZG, 7A3P, 3VTT,
+                7A3R).</p>
+            <p>Additionally, docking was conducted with representative structures from DENV1 (3G7T), DENV2 (1OAN), and DENV4
+                (3WE1) to their respective target proteins.</p>
+            <p>In this project, <strong>AutoDock Vina</strong> was the primary tool for performing molecular docking.</p>
+        </div>    
+        <div>
+            <label for="seqDropdown">Choose a docking result to view:</label>
+            <div class="dropdown-container">
+                <!-- Sequence Dropdown -->
+                <select id="seq-dropdown" aria-label="Select Sequence">
+                    <option value="" hidden>Select Sequence</option>
+                    <option value="DENV1SEQ03">DENV1SEQ03</option>
+                    <option value="DENV1SEQ06">DENV1SEQ06</option>
+                    <option value="DENV1SEQ08">DENV1SEQ08</option>
+                    <option value="DENV2SEQ05">DENV2SEQ05</option>
+                    <option value="DENV2SEQ08">DENV2SEQ08</option>
+                    <option value="DENV2SEQ10">DENV2SEQ10</option>
+                    <option value="DENV3SEQ06">DENV3SEQ06</option>
+                    <option value="DENV3SEQ09">DENV3SEQ09</option>
+                    <option value="DENV3SEQ10">DENV3SEQ10</option>
+                    <option value="DENV4SEQ01">DENV4SEQ01</option>
+                    <option value="DENV4SEQ09">DENV4SEQ09</option>
+                    <option value="DENV4SEQ10">DENV4SEQ10</option>
+                </select>
+                <!-- PDB Dropdown -->
+                <select id="pdb-dropdown" aria-label="Select PDB" disabled>
+                    <option value="" hidden>Select PDB</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="iframe-container">
+            <iframe id="result-frame" src=""></iframe>
+            <a id="pdb-link" class="link" href="#" target="_blank"></a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

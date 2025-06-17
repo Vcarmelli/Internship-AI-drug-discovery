@@ -1,0 +1,31 @@
+Property,Model Name,Unit,DENV1SEQ06,DENV1SEQ08,DENV1SEQ03,DENV2SEQ08,DENV2SEQ10,DENV2SEQ05,DENV3SEQ10,DENV3SEQ09,DENV3SEQ06,DENV4SEQ10,DENV4SEQ01,DENV4SEQ09
+Absorption,Water solubility,Numeric (log mol/L),-2.892,-2.892,-2.892,-2.892,-2.892,-2.892,-2.892,-2.892,-2.892,-2.892,-2.892,-2.892
+Absorption,Caco2 permeability,Numeric (log Papp in 10-6 cm/s),-0.618,-0.847,-0.732,-0.655,-0.756,-0.651,-0.848,-0.697,-0.854,-1.002,-0.825,-0.705
+Absorption,Intestinal absorption (human),Numeric (% Absorbed),0,0,0,0,0,0,0,0,0,0,0,0
+Absorption,Skin Permeability,Numeric (log Kp),-2.735,-2.735,-2.735,-2.735,-2.735,-2.735,-2.735,-2.735,-2.735,-2.735,-2.735,-2.735
+Absorption,P-glycoprotein substrate,Categorical (Yes/No),Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+Absorption,P-glycoprotein I inhibitor,Categorical (Yes/No),No,No,No,No,Yes,No,No,No,No,No,No,No
+Absorption,P-glycoprotein II inhibitor,Categorical (Yes/No),No,No,No,No,Yes,No,No,No,No,No,No,No
+Distribution,VDss (human),Numeric (log L/kg),-0.691,-0.077,-0.358,-0.372,-0.024,-0.867,-0.174,-0.577,-0.334,-0.032,-0.57,-0.336
+Distribution,Fraction unbound (human),Numeric (Fu),0.379,0.39,0.371,0.404,0.38,0.368,0.388,0.344,0.338,0.385,0.359,0.403
+Distribution,BBB permeability,Numeric (log BB),-2.781,-3.167,-3.343,-2.554,-5.562,-2.37,-3.331,-2.717,-2.196,-3.417,-3.11,-4.278
+Distribution,CNS permeability,Numeric (log PS),-6.862,-7.124,-7.835,-6.504,-10.158,-6.678,-7.598,-7.448,-6.377,-7.934,-7.029,-8.74
+Metabolism,CYP2D6 substrate,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Metabolism,CYP3A4 substrate,Categorical (Yes/No),Yes,No,Yes,No,Yes,No,Yes,Yes,No,No,No,Yes
+Metabolism,CYP1A2 inhibitior,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Metabolism,CYP2C19 inhibitior,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Metabolism,CYP2C9 inhibitior,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Metabolism,CYP2D6 inhibitior,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Metabolism,CYP3A4 inhibitior,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Excretion,Total Clearance,Numeric (log ml/min/kg),-0.114,0.494,-0.31,0.931,-0.609,0.199,-0.006,-0.25,0.443,-0.249,-0.102,0.291
+Excretion,Renal OCT2 substrate,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Toxicity,AMES toxicity,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Toxicity,Max. tolerated dose (human),Numeric (log mg/kg/day),0.442,0.439,0.438,0.439,0.438,0.441,0.438,0.439,0.438,0.438,0.438,0.442
+Toxicity,hERG I inhibitor,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Toxicity,hERG II inhibitor,Categorical (Yes/No),Yes,No,Yes,Yes,Yes,Yes,No,Yes,No,No,Yes,Yes
+Toxicity,Oral Rat Acute Toxicity (LD50),Numeric (mol/kg),2.482,2.482,2.482,2.482,2.482,2.483,2.482,2.482,2.482,2.482,2.482,2.454
+Toxicity,Oral Rat Chronic Toxicity (LOAEL),Numeric (log mg/kg_bw/day),6.895,6.022,6.823,5.446,4.65,6.487,9.571,9.398,7.48,9.646,7.654,3.182
+Toxicity,Hepatotoxicity,Categorical (Yes/No),Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes,Yes
+Toxicity,Skin Sensitisation,Categorical (Yes/No),No,No,No,No,No,No,No,No,No,No,No,No
+Toxicity,T.Pyriformis toxicity,Numeric (log ug/L),0.285,0.285,0.285,0.285,0.285,0.285,0.285,0.285,0.285,0.285,0.285,0.285
+Toxicity,Minnow toxicity,Numeric (log mM),17.145,16.161,19.967,12.064,3.594,13.78,19.526,15.855,10.053,18.54,16.41,4.952
