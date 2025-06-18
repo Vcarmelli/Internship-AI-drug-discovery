@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function() {
     if (window.location.pathname !== '/') {
         $('.nav-sections').addClass('hidden');

@@ -2,8 +2,10 @@
 
 {% block title %} Home {% endblock %} 
 
-{% block content %}
-    <section>
+{% block content %}    
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <section id="title-section">
         <div class="title">
             <h1>Molecular Docking Viewer</h1>
             <h3>AI-Driven Design and In Silico Evaluation of Peptide Inhibitors For Dengue Virus 3 Envelope Protein</h3>
@@ -18,12 +20,15 @@
 
         <div class="objectives">
             <div>
+                <div class="objective-icon">🎯</div>
                 <p>Constructing antiviral peptide sequences that effectively inhibit and bind with the DENV E protein, utilizing deep learning models</p>
             </div>
             <div>
-                <p>Validating the predicted peptides using molecular docking to confirm their binding efficiency and stability within the target environment.</p>
+                <div class="objective-icon">🔬</div>
+                <p>Validating the predicted peptides using molecular docking to confirm their binding efficiency and stability within the target environment</p>
             </div>
             <div>
+                <div class="objective-icon">💡</div>
                 <p>Providing insights for further research development in the field of antiviral peptide discovery</p>
             </div>
         </div>
@@ -31,14 +36,109 @@
 
     <section id="methodology">
         <div>
-            <h1 class="main-heading">Methodology</h1>
+            <h1 class="main-heading">Research Methodology</h1>
+        </div>
+
+        <div class="methodology-grid">
+            <div class="methodology-card" data-step="1">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">🧬</div>
+                    <h3 class="card-title">Peptide Generation</h3>
+                    <button class="expand-btn" onclick="toggleCard(this)">▼</button>
+                </div>
+                <div class="card-preview">
+                    The initial phase involved generating novel peptide sequences using advanced machine learning techniques. We primarily...
+                </div>
+                <div class="card-content">
+                    <p>The initial phase involved generating novel peptide sequences using advanced machine learning techniques. We primarily utilized <strong>ProtT5</strong>, a Transformer-based protein language model, specifically its 8-bit quantized model to manage computational resource demands effectively.</p>
+                    <br>
+                    <p>Peptide sequences were carefully curated from established antiviral peptide databases including <strong>AVPDB</strong> and <strong>DRAVP</strong>, ensuring a comprehensive foundation for our generation process.</p>
+                </div>
+            </div>
+            
+            <div class="methodology-card" data-step="2">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));">🤖</div>
+                    <h3 class="card-title">Model Development</h3>
+                    <button class="expand-btn" onclick="toggleCard(this)">▼</button>
+                </div>
+                <div class="card-preview">
+                    We fine-tuned the ProtT5 model using <strong>LoRA (Low-Rank Adaptation) Adapters</strong> to adapt it specifically for our...
+                </div>
+                <div class="card-content">
+                    <p>We fine-tuned the ProtT5 model using <strong>LoRA (Low-Rank Adaptation) Adapters</strong> to adapt it specifically for our task of generating peptide sequences. This approach allows the model to learn patterns from our curated dataset of peptides and their target serotypes.</p>
+                    <br>
+                    <p>The fine-tuning process enables the model to understand the relationship between peptide structures and their biological targets, creating a specialized tool for antiviral peptide generation.</p>
+                </div>
+            </div>
+            
+            <div class="methodology-card" data-step="3">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--accent-color), var(--primary-color));">📊</div>
+                    <h3 class="card-title">Inhibition Prediction</h3>
+                    <button class="expand-btn" onclick="toggleCard(this)">▼</button>
+                </div>
+                <div class="card-preview">
+                    To predict the effectiveness of generated peptides, we implemented machine learning models for regression analysis...
+                </div>
+                <div class="card-content">
+                    <p>To predict the effectiveness of generated peptides, we implemented machine learning models for regression analysis. Embeddings generated from the ProtT5 model's encoder serve as numerical input features for these predictive models.</p>
+                    <br>
+                    <p>The <strong>Random Forest regression model</strong> was selected to predict inhibition scores, where lower values (similar to IC50 measurements) indicate greater potency and effectiveness against target viruses.</p>
+                </div>
+            </div>
+            
+            <div class="methodology-card" data-step="4">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--secondary-light), var(--secondary-color));">🔬</div>
+                    <h3 class="card-title">Molecular Docking</h3>
+                    <button class="expand-btn" onclick="toggleCard(this)">▼</button>
+                </div>
+                <div class="card-preview">
+                    This critical phase involved analyzing the generated peptides' interaction with the <strong>DENV E protein</strong> using AutoDock...
+                </div>
+                <div class="card-content">
+                    <p>This critical phase involved analyzing the generated peptides' interaction with the <strong>DENV E protein</strong> using AutoDock Vina. The process required obtaining 3D structures of both the receptor (E Protein) and ligands (Peptides).</p>
+                    <br>
+                    <p>We utilized tools like the <strong>PepFOLD server</strong> for structure prediction and the <strong>Obabel library</strong> for format conversion to PDBQT. AutoDock Vina simulates various binding positions and orientations, predicting the optimal binding pose and affinity.</p>
+                </div>
+            </div>
+            
+            <div class="methodology-card" data-step="5">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-light));">🧪</div>
+                    <h3 class="card-title">ADMET Properties</h3>
+                    <button class="expand-btn" onclick="toggleCard(this)">▼</button>
+                </div>
+                <div class="card-preview">
+                    To assess the generated peptides' effectiveness and safety profile, we predicted their <strong>ADMET properties</strong>...
+                </div>
+                <div class="card-content">
+                    <p>To assess the generated peptides' effectiveness and safety profile, we predicted their <strong>ADMET properties</strong> (Absorption, Distribution, Metabolism, Excretion, and Toxicity) using the pkCSM server.</p>
+                    <br>
+                    <p>Peptide sequences were converted to <strong>SMILES format</strong> using NovoPro Labs Tools, enabling comprehensive pharmacokinetic and toxicological analysis to ensure the viability of our designed peptides as potential therapeutic agents.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="behind">
         <div>
-            <h1 class="main-heading">Behind the Words</h1>
+            <h1 class="main-heading">My Scientific Journey</h1>
+        </div>
+        <div class="quote-box">
+            <p class="story-paragraph">
+                As an intern at <span class="emphasis">Kinase AI</span>, I have learned things beyond my college curriculum. My interest in <span class="highlight">scientific discovery</span> led me to grab this opportunity to experience this field that I am curious about. A little FYI, before entering college as a STEM student, I loved unraveling <span class="emphasis">chemical processes</span>, how these tiny molecules interact to form cells, and how those cells build the complex systems that make up humans, plants, and animals.
+            </p>
+            
+            <p class="story-paragraph">
+                In my time in this internship, I have explored the <span class="highlight">structure of a virus</span>, the proteins, how antibodies work, and aside from peptide that usually being used on skincare, I discovered that it is not limited to being an ingredient to my daily routine. Kidding aside, the <span class="emphasis">dengue virus</span> is a huge threat worldwide, and being able to contribute even a small piece toward understanding or combating it was both humbling and exciting.
+            </p>
         </div>
     </section>
 
 {% endblock %}
+
+{% block js_file %} 
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+{% endblock %} 
