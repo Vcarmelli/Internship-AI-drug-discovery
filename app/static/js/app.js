@@ -1,6 +1,3 @@
-
-
-
 $(document).ready(function() {
     if (window.location.pathname !== '/') {
         $('.nav-sections').addClass('hidden');
@@ -41,7 +38,6 @@ function updatePDBDropdown(selectedSeq) {
         $("#pdb-dropdown").prop('disabled', true);
 
     }
-    // Reset iframe and pdbLink when sequence changes
     $("#result-frame").attr('src', '');
     $("#pdb-link").hide();
 }
@@ -55,15 +51,27 @@ function loadIframe(filename) {
     
     $("#result-frame").attr('src', '/docking/' + filename);
 
-    const pdb = filename.match(/-docking-([a-z0-9]+)\.html$/i);
-    const pdbID = pdb[1].toUpperCase();
+    const pdb = filename.match(/([a-z0-9]+)-docking-([a-z0-9]+)\.html$/i); 
+    const pdbID = pdb[2].toUpperCase();
     $("#pdb-link").attr('href', `https://www.rcsb.org/structure/${pdbID}`)
             .text(`View ${pdbID} on Protein Data Bank`)
             .show();
+
+    showPeptideBtn(pdb[1]);
 }
 
 
+function showPeptideBtn(peptideID) {
+    console.log("Peptide button shown:", peptideID);
+    $('#peptide-btn').data('peptide-id', peptideID);
+    $('#peptide-btn').addClass('visible');
+    
+}
 
+$('#peptide-btn').click(function() {
+    console.log("BTN CLICKED");
+    location.href = `/peptides/${$(this).data('peptide-id')}`;
+});
 
 
 

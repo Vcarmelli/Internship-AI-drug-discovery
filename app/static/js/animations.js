@@ -11,8 +11,6 @@ function createFloatingElements() {
         container.appendChild(element);
     }
 }
-
-// Initialize floating elements
 createFloatingElements();
 
 
@@ -20,11 +18,40 @@ createFloatingElements();
 
 // Intersection Observer for card animations
 const observerOptions = {
-    threshold: 0.1,
+    threshold: 0.35,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+// Intersection Observer for methodology cards
+const methodCardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 200);
+        }
+    });
+}, observerOptions);
+document.querySelectorAll('.methodology-card').forEach(card => {
+    methodCardObserver.observe(card);
+});
+
+// Intersection Observer for objective cards
+const objCardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 200);
+        }
+    });
+}, observerOptions);
+document.querySelectorAll('.objective-card').forEach(card => {
+    objCardObserver.observe(card);
+});
+
+// Intersection Observer for quote box
+const quoteBoxObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
             setTimeout(() => {
@@ -34,10 +61,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all cards
-document.querySelectorAll('.methodology-card').forEach(card => {
-    observer.observe(card);
-});
+const quoteBox = document.querySelector('.quote-box');
+quoteBoxObserver.observe(quoteBox);
+
+
+
 
 // Toggle card expansion
 function toggleCard(button) {
@@ -67,28 +95,3 @@ function toggleCard(button) {
         }, 100);
     }
 }
-
-const behindSection = document.getElementById('behind');
-const mainHeading = behindSection.querySelector('.main-heading');
-const paragraph = behindSection.querySelector('quote-box');
-
-const quoteObserverOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const quoteObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-
-            // Animate paragraph after a delay
-            setTimeout(() => {
-                paragraph.classList.add('visible');
-            }, 500);
-
-            quoteObserver.unobserve(entry.target);
-        }
-    });
-}, quoteObserverOptions);
-
-quoteObserver.observe(behindSection);

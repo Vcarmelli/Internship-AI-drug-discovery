@@ -1,0 +1,28 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Properties {% endblock %} 
+
+{% block content %}
+    <section>
+        <div>
+            <h1 class="main-heading">{{ peptide_id }}</h1>
+            <p>{{ sequence }}</p>
+        </div>
+        <div class="admet-section">
+            {% for group_name, properties in admet_data.items() %}
+            <div class="admet-category">
+                <h3 class="category-title">{{ group_name }}</h3>
+                <ul class="properties-list">
+                    {% for item in properties %}
+                    <li class="property-item">
+                        <span class="property-name">{{ item.property }}</span>
+                        <span class="property-value {{ item.class }}">{{ item.value }} <span class="units">{{ item.unit }}</span></span>
+                    </li>
+                    {% endfor %}                    
+                </ul>
+            </div>
+            {% endfor %} 
+        </div>
+    </section>
+
+{% endblock %}

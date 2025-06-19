@@ -7,14 +7,14 @@
     <div class="docking-content">
         <div>
             <h1 class="main-heading">How Was Molecular Docking Done?</h1>
-            <p>Molecular docking was performed on four different DENV3 E protein structures (PDB IDs: 1UZG, 7A3P, 3VTT,
+            <p>Molecular docking was performed on four different DENV3 envelope protein structures<br>(PDB IDs: 1UZG, 7A3P, 3VTT,
                 7A3R).</p>
             <p>Additionally, docking was conducted with representative structures from DENV1 (3G7T), DENV2 (1OAN), and DENV4
                 (3WE1) to their respective target proteins.</p>
-            <p>In this project, <strong>AutoDock Vina</strong> was the primary tool for performing molecular docking.</p>
+            <p>In this project, <strong class="highlight">AutoDock Vina</strong> was the primary tool for performing molecular docking.</p>
         </div>    
         <div>
-            <label for="seqDropdown">Choose a docking result to view:</label>
+            <label for="seq-dropdown">Choose a docking result to view:</label>
             <div class="dropdown-container">
                 <!-- Sequence Dropdown -->
                 <select id="seq-dropdown" aria-label="Select Sequence">
@@ -37,12 +37,13 @@
                     <option value="" hidden>Select PDB</option>
                 </select>
             </div>
+            <button id="peptide-btn">View Peptide Properties add the inhibition score ng docking na ito</button>
         </div>
     </div>
     <div>
         <div class="iframe-container">
             <iframe id="result-frame" src=""></iframe>
-            <a id="pdb-link" class="link" href="#" target="_blank"></a>
+            <a id="pdb-link" href="#" target="_blank"></a>
         </div>
     </div>
 </section>
