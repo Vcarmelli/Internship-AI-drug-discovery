@@ -22,8 +22,14 @@ def assign_class(value):
         return "value-number"
     
     
-def get_sequence(peptide_id):
+def get_peptide(sequence, peptide_id):
+    # parameter sequence is boolean: if True return sequence, if False return inhibition
     seq_path = os.path.join(current_app.root_path, 'static', 'results', 'sequences.json')
     with open(seq_path, 'r') as file:
-        data = json.load(file)        
-    return data.get(peptide_id)
+        data = json.load(file)       
+
+    peptide = data.get(peptide_id)
+
+    if not sequence:
+        return peptide.get('inhibition')
+    return peptide.get('sequence')

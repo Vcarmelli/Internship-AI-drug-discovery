@@ -1,14 +1,34 @@
 {
-    "DENV1SEQ06": "ALGWVKRITDSV",
-    "DENV1SEQ08": "PYRKRGHLAC",
-    "DENV1SEQ03": "SLWDVGAIKNRPEK",
-    "DENV2SEQ08": "PWGKRALCAH",
-    "DENV2SEQ10": "GWVPRVVDEVFHITKRSA",
-    "DENV2SEQ05": "SFLNTAKRGW",
-    "DENV3SEQ10": "WGHFRSLIQKDPC",
-    "DENV3SEQ09": "LFDRGWGNACGLFG",
-    "DENV3SEQ06": "WKDAGVFYHN",
-    "DENV4SEQ10": "LWHPGHDRFNITV",
-    "DENV4SEQ01": "WGCGKAIEVRDY",
-    "DENV4SEQ09": "PATHGDYVLNKR"
+    "DENV1SEQ06": {
+        "sequence": "ALGWVKRITDSV",
+        "inhibition": 15.14191
+    },
+    "DENV1SEQ08": {
+        "sequence": "PYRKRGHLAC",
+        "inhibition": 26.7605
+    },
+    "DENV1SEQ03": {
+        "sequence": "SLWDVGAIKNRPEK",
+        "inhibition": 29.11963
+    },
+    "DENV2SEQ08": {
+        "sequence": "PWGKRALCAH",
+        "inhibition": 22.8964
+    },
+    "DENV2SEQ10": {
+        "sequence": "GWVPRVVDEVFHITKRSA",
+        "inhibition": 23.63611
+    },
+    "DENV2SEQ05": {
+        "sequence": "SFLNTAKRGW",
+        "inhibition": 23.71531
+    },
+    "DENV3SEQ10": {
+        "sequence": "WGHFRSLIQKDPC",
+        "inhibition": 13.12
+    },
+    "DENV3SEQ09": {
+        "sequence": "LFDRGWGNACGLFG",
+        "inhibition": 25.102
+    }
 }

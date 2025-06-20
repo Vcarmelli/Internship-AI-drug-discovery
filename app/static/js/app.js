@@ -69,7 +69,6 @@ function showPeptideBtn(peptideID) {
 }
 
 $('#peptide-btn').click(function() {
-    console.log("BTN CLICKED");
     location.href = `/peptides/${$(this).data('peptide-id')}`;
 });
 
@@ -86,4 +85,16 @@ $('#seq-dropdown').change(function() {
 $('#pdb-dropdown').change(function() {
     console.log("htmlFile:", $(this).val());
     loadIframe($(this).val());
+});
+
+
+
+
+
+$('.tab-button').click(function() {
+    const targetTabId = $(this).data('tab'); 
+    $('.tab-button').removeClass('active');
+    $('.tab-content').removeClass('active');
+    $(this).addClass('active');
+    $('#' + targetTabId).addClass('active');
 });

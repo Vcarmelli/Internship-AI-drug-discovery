@@ -1,5 +1,5 @@
 from flask import Blueprint, send_from_directory, render_template, jsonify, current_app
-from .util import extract_unit, assign_class, get_sequence
+from .util import extract_unit, assign_class, get_peptide
 import csv
 import os
 
@@ -47,7 +47,7 @@ def peptide(peptide_id):
                 results[property_group].append(item)
     
     #print(f"Results for {peptide_id}: {results}")
-    return render_template('properties.html', admet_data=results, peptide_id=peptide_id, sequence=get_sequence(peptide_id))
+    return render_template('properties.html', admet_data=results, peptide_id=peptide_id, sequence=get_peptide(True, peptide_id))
 
 
 
