@@ -29,7 +29,17 @@ def get_peptide(sequence, peptide_id):
         data = json.load(file)       
 
     peptide = data.get(peptide_id)
-
     if not sequence:
         return peptide.get('inhibition')
     return peptide.get('sequence')
+
+
+def convert_sequence(sequence):
+    amino_map = {
+        'A': 'Ala', 'R': 'Arg', 'N': 'Asn', 'D': 'Asp', 'C': 'Cys',
+        'Q': 'Gln', 'E': 'Glu', 'G': 'Gly', 'H': 'His', 'I': 'Ile',
+        'L': 'Leu', 'K': 'Lys', 'M': 'Met', 'F': 'Phe', 'P': 'Pro',
+        'S': 'Ser', 'T': 'Thr', 'W': 'Trp', 'Y': 'Tyr', 'V': 'Val'
+    }
+    
+    return [amino_map[aa] for aa in sequence]

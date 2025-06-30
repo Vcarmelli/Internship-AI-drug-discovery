@@ -90,6 +90,7 @@ function toggleCard(button) {
     
     // Smooth scroll to card if expanding
     if (!isExpanded) {
+        preview.classList.toggle('hidden');
         setTimeout(() => {
             card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 100);

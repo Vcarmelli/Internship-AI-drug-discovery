@@ -30,5 +30,21 @@
     "DENV3SEQ09": {
         "sequence": "LFDRGWGNACGLFG",
         "inhibition": 25.102
+    },
+    "DENV3SEQ06": {
+        "sequence": "WKDAGVFYHN",
+        "inhibition": 27.65489
+    },
+    "DENV4SEQ10": {
+        "sequence": "LWHPGHDRFNITV",
+        "inhibition": 13.8334
+    },
+    "DENV4SEQ01": {
+        "sequence": "WGCGKAIEVRDY",
+        "inhibition": 15.2544
+    },
+    "DENV4SEQ09": {
+        "sequence": "PATHGDYVLNKRC",
+        "inhibition": 18.7988
     }
 }

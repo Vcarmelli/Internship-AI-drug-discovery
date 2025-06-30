@@ -1,5 +1,5 @@
 from flask import Blueprint, send_from_directory, render_template, jsonify, current_app
-from .util import extract_unit, assign_class, get_peptide
+from .util import extract_unit, assign_class, get_peptide, convert_sequence
 import csv
 import os
 
@@ -20,7 +20,6 @@ def peptides():
 
 @views.route('/peptides/<path:peptide_id>')
 def peptide(peptide_id):
-    print(f"Requested peptide file: {peptide_id}")
     csv_path = os.path.join(current_app.root_path, 'static', 'results', 'admet.csv')
     results = {}
 
@@ -45,9 +44,12 @@ def peptide(peptide_id):
                 if property_group not in results:
                     results[property_group] = []
                 results[property_group].append(item)
+
+    sequence = get_peptide(True, peptide_id)
+    amino_acids = convert_sequence(sequence)    
     
     #print(f"Results for {peptide_id}: {results}")
-    return render_template('properties.html', admet_data=results, peptide_id=peptide_id, sequence=get_peptide(True, peptide_id))
+    return render_template('properties.html', admet_data=results, peptide_id=peptide_id, sequence=sequence, amino_acids=amino_acids)
 
 
 

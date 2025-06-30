@@ -8,37 +8,65 @@
 
         <div>
             <h1 class="main-heading">{{ peptide_id }}</h1>
-            <p>{{ sequence }}</p>
         </div>
-        <div class="dashboard-container">
-            <div class="header">
-                <h1>ADMET Properties</h1>
-                <p>Comprehensive Drug Property Analysis</p>
-            </div>
 
-            <nav class="tab-navigation">
-                <button class="tab-button active" data-tab="absorption">Absorption</button>
-                <button class="tab-button" data-tab="distribution">Distribution</button>
-                <button class="tab-button" data-tab="metabolism">Metabolism</button>
-                <button class="tab-button" data-tab="excretion">Excretion</button>
-                <button class="tab-button" data-tab="toxicity">Toxicity</button>
-            </nav>
 
-            {% for group_name, properties in admet_data.items() %}
-            <div class="tab-content" id="{{ group_name.lower() }}">
-                <div class="admet-category">
-                    <h3 class="category-title">{{ group_name }}</h3>
-                    <ul class="properties-list">
-                        {% for item in properties %}
-                        <li class="property-item">
-                            <span class="property-name">{{ item.property }}</span>
-                            <span class="property-value {{ item.class }}">{{ item.value }} <span class="units">{{ item.unit }}</span></span>
-                        </li>
-                        {% endfor %}                    
-                    </ul>
+        <div class="main-container">
+            <div class="visualization-section">
+                <!-- Peptide Sequence -->
+                <div class="card">
+                    <h2 class="card-title">Peptide Sequence</h2>
+                    <div class="sequence-container">
+                        <div class="sequence-text">
+                            {% for aa in amino_acids %}
+                                <span class="amino-acid">{{ aa }}</span>
+                            {% endfor %}
+                        </div>
+                        <p>
+                            <strong>Single Letter Code:</strong> {{ sequence }}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3D Molecular Viewer -->
+                <div class="card">
+                    <h2 class="card-title">3D Structure Visualization</h2>
+                    <div class="viewer-container">
+                        <iframe class="viewer-iframe" title="3D Peptide Viewer" src="../static/peptides/{{ peptide_id }}.html"></iframe>
+                    </div>
                 </div>
             </div>
-            {% endfor %} 
+
+            <div class="dashboard-section">
+                <div class="header">
+                    <h1>ADMET Properties</h1>
+                    <p>Comprehensive Drug Property Analysis</p>
+                </div>
+
+                <nav class="tab-navigation">
+                    <button class="tab-button active" data-tab="absorption">Absorption</button>
+                    <button class="tab-button" data-tab="distribution">Distribution</button>
+                    <button class="tab-button" data-tab="metabolism">Metabolism</button>
+                    <button class="tab-button" data-tab="excretion">Excretion</button>
+                    <button class="tab-button" data-tab="toxicity">Toxicity</button>
+                </nav>
+
+                {% for group_name, properties in admet_data.items() %}
+                <div class="tab-content" id="{{ group_name.lower() }}">
+                    <div class="admet-category">
+                        <h3 class="category-title">{{ group_name }}</h3>
+                        <ul class="properties-list">
+                            {% for item in properties %}
+                            <li class="property-item">
+                                <span class="property-name">{{ item.property }}</span>
+                                <span class="property-value {{ item.class }}">{{ item.value }} <span class="units">{{ item.unit }}</span></span>
+                            </li>
+                            {% endfor %}                    
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %} 
+            </div>
         </div>
     </section>
 

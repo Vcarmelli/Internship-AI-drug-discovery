@@ -12,6 +12,8 @@
 * {
     margin: 0;
     padding: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-color) var(--background-color);
 }
 
 html, body {
@@ -431,7 +433,7 @@ select {
     border-radius: 20px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}j
+}
 
 .iframe-container a {
     width: 100%;
@@ -479,6 +481,131 @@ select {
 
 
 /* PEPTIDE PROPERTY PAGE STYLES */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+.visualization-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 137, 83, 0.1);
+    border: 2px solid var(--secondary-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 137, 83, 0.15);
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-title::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+/* Peptide Sequence */
+.sequence-container {
+    background: linear-gradient(135deg, #f8fffe, var(--background-color));
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid var(--secondary-light);
+}
+
+.sequence-container p {
+    color:var(--accent-color);
+    padding-top: 1em;
+}
+
+.sequence-text {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    word-break: break-all;
+    line-height: 1.8;
+}
+
+.amino-acid {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 3px;
+    background: var(--secondary-light);
+    color: var(--accent-color);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.amino-acid:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* 3D Viewer */
+.viewer-container {
+    position: relative;
+}
+
+.viewer-iframe {
+    width: 100%;
+    height: 50vh;
+    border: 3px solid var(--secondary-light);
+    border-radius: 20px;
+    background-color: white;
+}
+
+.viewer-iframe::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px; 
+    
+}
+
+.viewer-iframe::-webkit-scrollbar-track {
+    background: var(--background-color); 
+    border-radius: 10px;
+}
+
+.viewer-iframe::-webkit-scrollbar-thumb {
+    background: var(--secondary-color); 
+    border-radius: 10px;
+    border: 2px solid var(--background-color); 
+}
+
+.viewer-iframe::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color); 
+}
+
+
+/* ADMET  */
 .admet-category {
     background: white;
     border-radius: 15px;
@@ -576,7 +703,7 @@ select {
     margin-left: 5px;
 }
 
-.dashboard-container {
+.dashboard-section {
     width: min-content;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.9);
