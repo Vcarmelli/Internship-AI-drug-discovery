@@ -5,6 +5,10 @@ This web-based Molecular Docking Viewer was developed as part of my internship p
 
 This web application focuses on visualizing molecular docking results for peptide–protein interactions in a clear, interactive interface to support antiviral drug research.
 
+## Project Website
+You can access the live version of this project [here](https://internship-ai-drug-discovery.vercel.app/).
+
+
 
 ## Screenshots
 
