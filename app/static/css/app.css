@@ -109,11 +109,17 @@ header {
 }
 
 section {
-    padding: 7em 4em 0em 4em;
+    padding: 7em 5em 0em 5em;
 }
 
 #title-section {
     height: 100vh;
+    display: flex;
+}
+
+#title-section img {
+    margin-left: 15%;
+    animation: float 6s ease-in-out infinite;
 }
 
 
@@ -144,6 +150,10 @@ section {
 
 .title p {
     padding-top: 2.5em;
+}
+
+.title.list-desc {
+    width: 60%;
 }
 
 .main-heading {
@@ -381,8 +391,14 @@ section {
 
 .molecular-docking {
     display: grid;
-    grid-template-columns: 30% auto;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap: 2em;
+}
+
+@media (min-width: 1024px) {
+    .molecular-docking {
+        grid-template-columns: 30% auto;
+    }
 }
 
 .docking-content p {
@@ -458,7 +474,7 @@ select {
     transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: translateY(20px);
     opacity: 0;
-    width: 75%;
+    width: 300px;
     margin: 1.5em 0;
 }
 
@@ -486,7 +502,7 @@ select {
     margin: 0 auto;
     padding: 40px 20px;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.5fr 2fr;
     gap: 40px;
 }
 
@@ -615,6 +631,11 @@ select {
     transition: all 0.3s ease;
 }
 
+.admet-category.list {
+    width: 70%;
+    margin: 50px auto;
+}
+
 .admet-category:hover {
     transform: translateY(-5px);
     border-color: var(--secondary-color);
@@ -642,6 +663,10 @@ select {
 .properties-list {
     list-style: none;
     padding: 0;
+}
+
+.properties-list a {
+    text-decoration: none;;
 }
 
 .property-item {
@@ -782,7 +807,6 @@ select {
     display: none;
     padding: 40px;
     animation: fadeInUp 0.5s ease-out;
-    min-height: 600px;
 }
 
 .tab-content.active {

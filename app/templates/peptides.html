@@ -4,9 +4,29 @@
 
 {% block content %}
     <section>
-        <div class="title">
-            <h1>List of Pepos</h1>
-            <p>This web application focuses on visualizing molecular docking results for protein–peptide interactions in a clear, interactive interface to support antiviral drug research.</p>
+        <div class="floating-elements" id="floatingElements"></div>
+
+        <div class="title list-desc">
+            <h1>List of Peptides</h1>
+            <p>This table displays predicted peptide sequences and their corresponding viral inhibition scores. Each peptide was generated from the finetuned ProtT5 model and experimentally validated for dengue virus inhibition.</p>
+        </div>
+
+
+        <div class="admet-category list">
+            {% for denv_type, peptides in grouped_peptides.items() %}
+            <h3>{{ denv_type }}</h3>
+            <ul class="properties-list">
+                {% for peptide_id, peptide_data in peptides.items() %}
+                <a href="{{ url_for('views.peptide', peptide_id=peptide_id) }}">
+                    <li class="property-item">
+                        <span class="property-name">{{ peptide_id }}</span>
+                        <span class="property-value value-number">{{ peptide_data.sequence }}</span>
+                        <span class="property-value">Inhibition: <span class="value-positive">{{ "%.4f"|format(peptide_data.inhibition) }}</span></span>
+                    </li>  
+                </a>
+                {% endfor %}
+            </ul>
+            {% endfor %}
         </div>
     </section>
 

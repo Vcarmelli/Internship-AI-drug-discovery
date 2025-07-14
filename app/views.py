@@ -2,6 +2,7 @@ from flask import Blueprint, send_from_directory, render_template, jsonify, curr
 from .util import extract_unit, assign_class, get_peptide, convert_sequence
 import csv
 import os
+import json
 
 views = Blueprint('views', __name__)
 
@@ -16,7 +17,20 @@ def docking():
 
 @views.route('/peptides')
 def peptides():
-    return render_template('peptides.html')
+    json_path = os.path.join(current_app.root_path, 'static', 'results', 'sequences.json')
+    with open(json_path, 'r') as f:
+        peptides_data = json.load(f)
+
+    grouped_peptides = {}
+    for peptide_id, data in peptides_data.items():
+        denv_type = peptide_id[:5]  # Extract DENV1, DENV2, etc.
+        if denv_type not in grouped_peptides:
+            grouped_peptides[denv_type] = {}
+        grouped_peptides[denv_type][peptide_id] = data
+    
+    return render_template('peptides.html', grouped_peptides=grouped_peptides)
+
+    # return render_template('peptides.html', peptides=peptides_data)
 
 @views.route('/peptides/<path:peptide_id>')
 def peptide(peptide_id):
@@ -48,7 +62,6 @@ def peptide(peptide_id):
     sequence = get_peptide(True, peptide_id)
     amino_acids = convert_sequence(sequence)    
     
-    #print(f"Results for {peptide_id}: {results}")
     return render_template('properties.html', admet_data=results, peptide_id=peptide_id, sequence=sequence, amino_acids=amino_acids)
 
 

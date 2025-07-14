@@ -1,20 +1,3 @@
-// Create floating elements
-function createFloatingElements() {
-    const container = document.getElementById('floatingElements');
-    for (let i = 0; i < 15; i++) {
-        const element = document.createElement('div');
-        element.className = 'floating-element';
-        element.style.left = Math.random() * 100 + '%';
-        element.style.top = Math.random() * 100 + '%';
-        element.style.animationDelay = Math.random() * 6 + 's';
-        element.style.animationDuration = (Math.random() * 3 + 3) + 's';
-        container.appendChild(element);
-    }
-}
-createFloatingElements();
-
-
-
 
 // Intersection Observer for card animations
 const observerOptions = {
@@ -72,27 +55,24 @@ function toggleCard(button) {
     const card = button.closest('.methodology-card');
     const preview = card.querySelector('.card-preview');
     const content = card.querySelector('.card-content');
-    const isExpanded = content.classList.contains('expanded');
+    const wasExpanded = content.classList.contains('expanded');
     
     // Close all other cards
     document.querySelectorAll('.card-content.expanded').forEach(otherContent => {
         if (otherContent !== content) {
-
             otherContent.classList.remove('expanded');
+            otherContent.closest('.methodology-card').querySelector('.card-preview').classList.remove('hidden');
             otherContent.closest('.methodology-card').querySelector('.expand-btn').classList.remove('expanded');
         }
     });
     
-    // Toggle current card
-    preview.classList.toggle('hidden');
-    content.classList.toggle('expanded');
-    button.classList.toggle('expanded');
+    // Set new state
+    preview.classList[wasExpanded ? 'remove' : 'add']('hidden');
+    content.classList[wasExpanded ? 'remove' : 'add']('expanded');
+    button.classList[wasExpanded ? 'remove' : 'add']('expanded');
     
-    // Smooth scroll to card if expanding
-    if (!isExpanded) {
-        preview.classList.toggle('hidden');
-        setTimeout(() => {
-            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 100);
+    // Smooth scroll if expanding
+    if (!wasExpanded) {
+        setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
     }
 }

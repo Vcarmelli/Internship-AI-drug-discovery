@@ -2,8 +2,25 @@ $(document).ready(function() {
     if (window.location.pathname !== '/') {
         $('.nav-sections').addClass('hidden');
     }
+
+    $('.tab-content:first').addClass('active');
 });
 
+
+// Create floating elements
+function createFloatingElements() {
+    const container = document.getElementById('floatingElements');
+    for (let i = 0; i < 15; i++) {
+        const element = document.createElement('div');
+        element.className = 'floating-element';
+        element.style.left = Math.random() * 100 + '%';
+        element.style.top = Math.random() * 100 + '%';
+        element.style.animationDelay = Math.random() * 6 + 's';
+        element.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        container.appendChild(element);
+    }
+}
+createFloatingElements();
 
 
 
